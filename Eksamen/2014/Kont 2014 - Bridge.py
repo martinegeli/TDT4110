@@ -1,3 +1,4 @@
+
 def bidOk(melding, antall):
     tall=int(melding[0])
     if tall+6<=antall:
