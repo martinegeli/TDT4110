@@ -66,10 +66,10 @@ def main():
             tegn = 'O'
         rad = int(input('Velg hvilken rad (0, 1 eller 2): '))
         kolonne = int(input('Velg hvilken kolonne (0, 1 eller 2: '))
-        if riktig_input(rad, kolonne) and rad<3 and kolonne<3:
+        if riktig_input(rad, kolonne) and rad < 3 and kolonne < 3:
                 board[rad][kolonne] = tegn
                 print_board()
-                i+=1
+                i += 1
         if spiller_vunnet():
             break
 

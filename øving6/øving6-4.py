@@ -23,16 +23,15 @@ def lengde(v):
 		total+=i**2
 	return sqrt(total)
 #for hver i som finnes i v, så blir i**2 lagt til i total. return på slutten returnerer roten av total, som gir vektorens lengde.
-	
+
 print(lengde(vec2))
 print(lengde(vec1))
 
 def produkt(v, u):
 	total=0
 	for i in range(len(v)):
-		total+=v[i]*u[i]
+		total += v[i] * u[i]
 	return total
 #produktet skal gange det første elementet i v med det første elementet i u, osv. Dette fungerer bare om vektorene er like lange. Returnerer total som da blir skalarproduktet.
 
 print(produkt(vec1, vec2))
-

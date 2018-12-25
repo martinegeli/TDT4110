@@ -36,7 +36,7 @@ print("B15-1".startswith("B15"))
 smittetHyller=['B13', 'B14', 'B15', 'A234', 'A235', 'C31']
 infected_cheeses=infected_cheeses(cheeses, smittetHyller)
 
-print('Mulig infiserte oster: ', infected_cheeses)	
+print('Mulig infiserte oster: ', infected_cheeses)
 
 def find_not_infected(cheeses, infected_cheeses):
 	result = []

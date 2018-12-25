@@ -1,7 +1,7 @@
 from random import *
 from collections import Counter
 
-random=[]
+random = []
 for i in range(100):
 	random.append(randrange(1,11))
 

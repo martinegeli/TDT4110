@@ -6,8 +6,8 @@ def add_family_members(role, name):
 	#my_family[role]=[name]
 	if role in my_family:
 		my_family[role].append(name)
-	else: 
-		my_family[role]=[name]
+	else:
+		my_family[role] = [name]
 	return my_family
 
 

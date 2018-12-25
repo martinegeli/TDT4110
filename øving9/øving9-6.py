@@ -1,3 +1,4 @@
+
 def number_of_lines(filename):
 	f = open(filename, 'r')
 	i = 0

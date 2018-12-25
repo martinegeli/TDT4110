@@ -1,6 +1,8 @@
+
 def ganger(x,y):
-	return x*y
-svar=ganger(5, 7)
+	return x * y
+
+svar = ganger(5, 7)
 print(svar)
 
 def screen(x):

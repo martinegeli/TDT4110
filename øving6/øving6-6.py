@@ -1,79 +1,75 @@
-from random import *
+import random
 
-numbers=[i+1 for i in range(34)]
+def numbersfunc():
+    return [i for i in range(1,35)]
 
-myGuess=[2,5,8,12,17,23,33]
+numbers = numbersfunc()
 
-def random():
-	i=0
-	løsning=[]
-	numbers=[i+1 for i in range(34)]
-	while i<7:
-		random=randint(1,34-i)
-		løsning.append(numbers[random-1])
-		numbers.pop(random-1)
-		i+=1
-	return numbers, løsning
+def myGuess():
+    result = []
+    i = 0
+    while i < 7:
+        r = random.randint(1,34)
+        if r not in result:
+            result.append(r)
+            i += 1
+    return result
 
-nyeTall, løsning=random()
+#print(myGuess())
 
-def compList(liste1, liste2):
-	result=[]
-	for item in liste1:
-		if item in liste2:
-			result.append(item)
-	return result
+def drawNumbers(numbers, n):
+    result = []
+    i = 0
+    while i < n:
+        r = random.randint(0,len(numbers)-1)
+        if r not in result:
+            result.append(numbers[r])
+            i += 1
+    return result
 
-def premie():
-	if result==7:
-		premie=2749455
-	elif result==6 and tillegstall==1:
-		premie=102110
-	elif result==6:
-		premie=3385
-	elif result==5:
-		premie=95
-	elif result==4 and tileggstall==1:
-		premie=45
-	else:
-		premie=0
-	return premie
-	
+draw = drawNumbers(numbers, 7)
+#print(draw)
+
+def compList(draw, myGuess):
+    like_lotto = 0
+    like_tillegg = 0
+    tall_lotto = draw[0:7]
+    tall_tillegg = draw[7:10]
+    for item in myGuess:
+        if item in tall_lotto:
+            like_lotto += 1
+        elif item in tall_tillegg:
+            like_tillegg += 1
+    return like_lotto, like_tillegg
+
+def winnings(like_lotto, like_tillegg):
+    dict = {(7,0) : 2749455,
+			(6,1):102110,
+			(6,0):3385,
+			(5,2):95,
+			(5,1):95,
+			(5,0):95,
+			(4,3):45,
+			(4,2):45,
+			(4,1):45,
+		}
+    l = (like_lotto, like_tillegg)
+    if l in dict:
+        print((like_lotto, like_tillegg), dict.get(l))
+        return dict.get(l) - 5
+    return -5
+
+
 def main():
-	lottotall=[]
-	i=0
-	while i<10:
-		random=randint(1,34-i)
-		lottotall.append(numbers[random-1])
-		numbers.pop(random-1)
-		i+=1
-	sju_første=lottotall[:7]
-	tillegg=lottotall[7:10]
-	result=compList(myGuess, sju_første)
-	tilleggstall=compList(myGuess, tillegg)
-	if len(result)==7:
-		premie=2749455
-	elif len(result)==6 and len(tillegstall)==1:
-		premie=102110
-	elif len(result)==6:
-		premie=3385
-	elif len(result)==5:
-		premie=95
-	elif len(result)==4 and len(tilleggstall)==1:
-		premie=45
-	else:
-		premie=0
-	return lottotall, result, tilleggstall, premie
-	
-print(main())
+    numbers = numbersfunc()
+    my_guess = myGuess()
+    print(my_guess)
 
-"""sum_1=0
-kostnad=0
-antall=0
-while antall<1000000:
-	main()
-	kostnad+=5
-	antall+=1
-	print(premie)
-print(sum_1)
-print(kostnad)"""
+    total = 0
+    for i in range(1000000):
+        draw = drawNumbers(numbers, 10)
+        like_lotto, like_tillegg = compList(draw, my_guess)
+        total += winnings(like_lotto, like_tillegg)
+    print(total)
+
+#main()
