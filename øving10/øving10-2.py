@@ -1,8 +1,7 @@
 def recursive_sum(n):
 	if n==0:
 		return 0
-	else:
-		return n+recursive_sum(n-1)
+	return n+recursive_sum(n-1)
 
 print(recursive_sum(6))
 
@@ -12,8 +11,7 @@ def find_smallest_element(numbers):
 		numbers.sort()
 		del numbers[-1]
 		return find_smallest_element(numbers)
-	else:
-		return set(numbers)
+	return set(numbers)
 
 
 
